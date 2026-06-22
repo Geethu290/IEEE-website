@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IEEE Ignite 2025 — Spark the Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── HOME-ONLY STYLES ─────────────────────────────────── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 7rem 2rem 5rem;
+    }
+    #home::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(79,70,229,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79,70,229,.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%);
+    }
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .hero-orb-1 { width: 500px; height: 500px; background: rgba(79,70,229,.18); top: -100px; left: -100px; }
+    .hero-orb-2 { width: 400px; height: 400px; background: rgba(6,182,212,.12); bottom: -80px; right: -60px; }
+
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(79,70,229,.15);
+      border: 1px solid rgba(79,70,229,.35);
+      border-radius: 100px;
+      padding: .35rem .9rem;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--indigo2);
+      margin-bottom: 1.5rem;
+      letter-spacing: .04em;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 8px var(--cyan);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .6; transform: scale(.85); }
+    }
+
+    .hero-title {
+      font-family: var(--font-h);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      line-height: 1.0;
+      margin-bottom: .4rem;
+      letter-spacing: -.02em;
+    }
+    .hero-title .ignite-word {
+      display: inline-block;
+      position: relative;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--indigo2);
+    }
+    .hero-title .ignite-word::after {
+      content: 'IGNITE';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--indigo), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      clip-path: inset(0 100% 0 0);
+      animation: spark-fill 1.4s .3s cubic-bezier(.77,0,.18,1) forwards;
+    }
+    @keyframes spark-fill { to { clip-path: inset(0 0% 0 0); } }
+    .ignite-word .spark-line {
+      position: absolute;
+      bottom: -6px; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--indigo), var(--cyan));
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: spark-line 1.4s .9s cubic-bezier(.77,0,.18,1) forwards;
+      box-shadow: 0 0 12px var(--cyan);
+    }
+    @keyframes spark-line { to { transform: scaleX(1); } }
+
+    .hero-tagline {
+      font-family: var(--font-h);
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 500;
+      color: var(--slate2);
+      margin-bottom: 1.8rem;
+    }
+    .hero-tagline em { color: var(--cyan); font-style: normal; }
+
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem; }
+    .hero-meta-item { display: flex; align-items: center; gap: .5rem; font-size: .9rem; color: var(--slate2); }
+    .hero-meta-item .icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(79,70,229,.15);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+    }
+
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      font-size: .7rem;
+      letter-spacing: .1em;
+      color: var(--slate);
+      text-transform: uppercase;
+      animation: fade-bob 2s infinite;
+    }
+    @keyframes fade-bob { 0%,100% { opacity: .5; } 50% { opacity: 1; } }
+    .scroll-hint svg { animation: bounce 1.6s infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+
+    /* Quick links strip */
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 0 2rem 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .quick-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+      cursor: pointer;
+    }
+    .quick-card:hover {
+      border-color: var(--indigo2);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(79,70,229,.15);
+    }
+    .quick-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(79,70,229,.2), rgba(6,182,212,.15));
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+    }
+    .quick-card h3 {
+      font-family: var(--font-h);
+      font-size: .9rem;
+      font-weight: 700;
+      margin-bottom: .15rem;
+    }
+    .quick-card p { font-size: .78rem; color: var(--slate2); }
+
+    @media (max-width: 500px) {
+      #home { padding: 7rem 1.25rem 4rem; }
+      .quick-links { padding: 0 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo"><span class="spark">⚡</span> IEEE <span class="spark">Ignite</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About IEEE</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About IEEE</a>
+    <a href="events.html">Events</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-content">
+      <div class="hero-badge">IEEE SB LBSITW &mdash; 2025</div>
+      <h1 class="hero-title">
+        <span class="ignite-word">IGNITE<span class="spark-line"></span></span>
+      </h1>
+      <p class="hero-tagline">Spark Innovation. <em>Build Tomorrow.</em></p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="icon">📅</div>
+          <span>August 15–16, 2025</span>
+        </div>
+        <div class="hero-meta-item">
+          <div class="icon">📍</div>
+          <span>LBS Institute of Technology for Women, Trivandrum</span>
+        </div>
+        <div class="hero-meta-item">
+          <div class="icon">👥</div>
+          <span>Open to all engineering students</span>
+        </div>
+      </div>
+      <p style="color:var(--slate2);max-width:560px;font-size:.95rem;margin-bottom:2rem;">
+        IEEE Ignite is a two-day technical festival bringing together the brightest student minds for workshops, challenges, and collaborations designed to accelerate learning and spark innovation.
+      </p>
+      <div class="hero-cta">
+        <a href="events.html" class="btn-primary">Explore Events ↗</a>
+        <a href="about.html" class="btn-ghost">About IEEE</a>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M8 3v10M4 9l4 4 4-4"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- QUICK LINKS STRIP -->
+  <div class="quick-links">
+    <a href="about.html" class="quick-card">
+      <div class="quick-icon">🌐</div>
+      <div>
+        <h3>About IEEE</h3>
+        <p>Who we are &amp; our mission</p>
+      </div>
+    </a>
+    <a href="events.html" class="quick-card">
+      <div class="quick-icon">🎯</div>
+      <div>
+        <h3>Events</h3>
+        <p>9 events across 3 tracks</p>
+      </div>
+    </a>
+    <a href="schedule.html" class="quick-card">
+      <div class="quick-icon">🗓</div>
+      <div>
+        <h3>Schedule</h3>
+        <p>Two-day timetable</p>
+      </div>
+    </a>
+    <a href="faq.html" class="quick-card">
+      <div class="quick-icon">💬</div>
+      <div>
+        <h3>FAQ</h3>
+        <p>Common questions answered</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-logo">IEEE <span>Ignite</span> 2025</div>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <p>Organized by IEEE Student Branch, LBS Institute of Technology for Women, Thiruvananthapuram</p>
+    <p style="margin-top:.5rem;">© 2025 IEEE SB LBSITW. All rights reserved.</p>
+  </footer>
+
+  <script src="nav.js"></script>
+</body>
+</html>

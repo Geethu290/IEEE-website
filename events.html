@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — IEEE Ignite 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo"><span class="spark">⚡</span> IEEE <span class="spark">Ignite</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About IEEE</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About IEEE</a>
+    <a href="events.html" class="active">Events</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-orb page-hero-orb-1"></div>
+    <div class="page-hero-orb page-hero-orb-2"></div>
+    <div class="page-hero-content">
+      <p class="page-eyebrow">What's on</p>
+      <h1 class="page-title">Event <span>Categories</span></h1>
+      <p class="page-sub">Nine curated events across three tracks — Technical, Professional, and Interactive. Find your arena and go all in.</p>
+    </div>
+  </div>
+
+  <!-- EVENTS -->
+  <div class="section-wrap">
+    <div class="container">
+
+      <div class="events-toolbar">
+        <div class="search-wrap">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/>
+          </svg>
+          <input type="text" id="event-search" placeholder="Search events…" autocomplete="off" />
+        </div>
+        <div class="filter-btns">
+          <button class="filter-btn active" data-filter="All">All</button>
+          <button class="filter-btn" data-filter="Technical">Technical</button>
+          <button class="filter-btn" data-filter="Professional">Professional</button>
+          <button class="filter-btn" data-filter="Interactive">Interactive</button>
+        </div>
+      </div>
+
+      <div class="events-grid" id="events-grid"></div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-logo">IEEE <span>Ignite</span> 2025</div>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <p>Organized by IEEE Student Branch, LBS Institute of Technology for Women, Thiruvananthapuram</p>
+    <p style="margin-top:.5rem;">© 2025 IEEE SB LBSITW. All rights reserved.</p>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script>
+    const EVENTS = [
+      { name:"Web Development Workshop", category:"Technical",    icon:"💻", desc:"Build modern, responsive websites from scratch. Covers HTML5, CSS3, JavaScript ES6+, and a quick intro to React fundamentals.",              duration:"2 hrs",     spots:"30 seats" },
+      { name:"AI & Machine Learning Session", category:"Technical", icon:"🤖", desc:"Explore supervised learning, neural networks, and model deployment. Includes a hands-on Colab notebook exercise.",                          duration:"2.5 hrs",   spots:"25 seats" },
+      { name:"Coding Challenge",            category:"Technical",    icon:"⌨️", desc:"Race against the clock on algorithmic problems. Problems range from beginner-friendly to competitive-programming difficulty.",               duration:"90 min",    spots:"Unlimited" },
+      { name:"Resume Building",             category:"Professional", icon:"📄", desc:"Craft a standout, ATS-optimized resume with expert guidance. Bring your existing CV for a live review session.",                            duration:"1.5 hrs",   spots:"40 seats" },
+      { name:"LinkedIn & Networking",       category:"Professional", icon:"🔗", desc:"Optimize your LinkedIn profile, master outreach messaging, and learn how to convert connections into real opportunities.",                    duration:"1.5 hrs",   spots:"40 seats" },
+      { name:"Career Guidance Talk",        category:"Professional", icon:"🗺️", desc:"Industry veterans share their paths from campus to career — covering placements, higher studies, and entrepreneurship roadmaps.",          duration:"1 hr",      spots:"Unlimited" },
+      { name:"Tech Quiz",                   category:"Interactive",  icon:"🧠", desc:"Two-member teams tackle rapid-fire rounds on CS theory, current tech events, IEEE history, and brain-twisting puzzles.",                    duration:"2 hrs",     spots:"20 teams" },
+      { name:"Innovation Pitch",            category:"Interactive",  icon:"🚀", desc:"Got an idea that could change the world? Pitch it in 3 minutes to a panel of industry mentors and compete for prizes.",                    duration:"Half day",  spots:"15 teams" },
+      { name:"Problem-Solving Challenge",   category:"Interactive",  icon:"🧩", desc:"Work through open-ended real-world engineering problems in teams. Judged on creativity, feasibility, and presentation quality.",            duration:"2 hrs",     spots:"18 teams" }
+    ];
+
+    function renderEvents(list) {
+      const grid = document.getElementById('events-grid');
+      if (!list.length) {
+        grid.innerHTML = '<div class="no-results">No events match your search. Try a different term or category.</div>';
+        return;
+      }
+      grid.innerHTML = list.map(e => `
+        <div class="event-card" data-category="${e.category}">
+          <div class="event-card-top">
+            <div class="event-icon ${e.category}">${e.icon}</div>
+            <span class="cat-badge cat-${e.category}">${e.category}</span>
+          </div>
+          <h3>${e.name}</h3>
+          <p>${e.desc}</p>
+          <div class="event-card-meta">
+            <span>⏱ ${e.duration}</span>
+            <span>🎟 ${e.spots}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    let activeFilter = 'All';
+
+    function applyFilters() {
+      const q = document.getElementById('event-search').value.toLowerCase().trim();
+      renderEvents(EVENTS.filter(e => {
+        const catMatch  = activeFilter === 'All' || e.category === activeFilter;
+        const nameMatch = e.name.toLowerCase().includes(q) || e.desc.toLowerCase().includes(q);
+        return catMatch && nameMatch;
+      }));
+    }
+
+    document.getElementById('event-search').addEventListener('input', applyFilters);
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    renderEvents(EVENTS);
+  </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — IEEE Ignite 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo"><span class="spark">⚡</span> IEEE <span class="spark">Ignite</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About IEEE</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="faq.html" class="active">FAQ</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About IEEE</a>
+    <a href="events.html">Events</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="faq.html" class="active">FAQ</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-orb page-hero-orb-1"></div>
+    <div class="page-hero-orb page-hero-orb-2"></div>
+    <div class="page-hero-content">
+      <p class="page-eyebrow">Got questions?</p>
+      <h1 class="page-title">Frequently Asked <span>Questions</span></h1>
+      <p class="page-sub">Everything you need to know before attending IEEE Ignite 2025. Click any question to expand.</p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section-wrap">
+    <div class="container">
+      <div class="faq-list" id="faq-list"></div>
+
+      <div style="margin-top:3rem;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;max-width:720px;">
+        <h3 style="font-family:var(--font-h);font-size:1rem;font-weight:700;margin-bottom:.5rem;color:var(--cyan);">Still have questions?</h3>
+        <p style="font-size:.88rem;color:var(--slate2);margin-bottom:1.1rem;">Reach out to the IEEE SB LBSITW team on Instagram or LinkedIn — we respond within 24 hours.</p>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+          <a href="https://instagram.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(79,70,229,.12);border:1px solid var(--border);border-radius:6px;padding:.35rem .75rem;font-size:.8rem;font-weight:500;color:var(--indigo2);transition:background .2s,color .2s;">📸 Instagram</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(79,70,229,.12);border:1px solid var(--border);border-radius:6px;padding:.35rem .75rem;font-size:.8rem;font-weight:500;color:var(--indigo2);transition:background .2s,color .2s;">💼 LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-logo">IEEE <span>Ignite</span> 2025</div>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <p>Organized by IEEE Student Branch, LBS Institute of Technology for Women, Thiruvananthapuram</p>
+    <p style="margin-top:.5rem;">© 2025 IEEE SB LBSITW. All rights reserved.</p>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script>
+    const FAQS = [
+      {
+        q: "Who can participate in IEEE Ignite?",
+        a: "IEEE Ignite is open to all currently enrolled engineering and technology students, regardless of branch or year. Non-IEEE members are welcome; however, IEEE members enjoy priority registration and reduced fees."
+      },
+      {
+        q: "Is there a registration fee?",
+        a: "Most workshops and interactive sessions are free for IEEE members. Non-members can register for a nominal fee of ₹150 per event. The Coding Challenge and Tech Quiz are completely free for all participants."
+      },
+      {
+        q: "Can I participate in multiple events?",
+        a: "Yes! You can register for as many events as you like, provided they do not have schedule conflicts. We recommend checking the timetable carefully before registering for multiple events on the same day."
+      },
+      {
+        q: "What should I bring to the event?",
+        a: "Bring your college ID for registration verification. For the Web Development Workshop and Coding Challenge, bring your laptop with a modern browser and code editor installed. For the Innovation Pitch, prepare a short slide deck (optional but encouraged)."
+      },
+      {
+        q: "Will certificates be provided?",
+        a: "Yes, all participants who attend an event will receive a digitally signed IEEE participation certificate. Winners of competitions will additionally receive merit certificates and prizes."
+      },
+      {
+        q: "How do I register?",
+        a: "Registration links will be shared via the IEEE SB LBSITW Instagram and official WhatsApp groups. Spot registrations may also be available on the day of the event, subject to seat availability."
+      },
+      {
+        q: "Is food provided at the event?",
+        a: "Tea/coffee and light snacks are provided during break sessions. Lunch is available at the college canteen at subsidized rates for all participants."
+      },
+      {
+        q: "Will there be prizes?",
+        a: "Absolutely! Competitive events — Coding Challenge, Tech Quiz, Innovation Pitch, and Problem-Solving Challenge — carry cash prizes, trophies, and goody bags. Total prize pool is ₹30,000+."
+      }
+    ];
+
+    const faqList = document.getElementById('faq-list');
+    faqList.innerHTML = FAQS.map((item, i) => `
+      <div class="faq-item" id="faq-${i}">
+        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(${i})">
+          <span>${item.q}</span>
+          <span class="faq-chevron">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 4l4 4 4-4"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer" id="faq-ans-${i}">
+          <p>${item.a}</p>
+        </div>
+      </div>
+    `).join('');
+
+    function toggleFaq(i) {
+      const item   = document.getElementById(`faq-${i}`);
+      const ans    = document.getElementById(`faq-ans-${i}`);
+      const btn    = item.querySelector('.faq-question');
+      const isOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.faq-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-answer').classList.remove('open');
+        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        ans.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+  </script>
+</body>
+</html>

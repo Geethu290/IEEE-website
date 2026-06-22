@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About IEEE — IEEE Ignite 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.25rem;
+      margin: 2.5rem 0;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.2rem;
+      text-align: center;
+      transition: border-color .2s, transform .2s;
+    }
+    .stat-card:hover { border-color: var(--indigo2); transform: translateY(-3px); }
+    .stat-card .num {
+      font-family: var(--font-h);
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--indigo2), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+    }
+    .stat-card .label { font-size: .8rem; color: var(--slate2); margin-top: .3rem; }
+
+    .objective-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+    .objective-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .8rem;
+      font-size: .9rem;
+      color: var(--slate2);
+    }
+    .objective-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      margin-top: .55rem;
+      box-shadow: 0 0 6px var(--cyan);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo"><span class="spark">⚡</span> IEEE <span class="spark">Ignite</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About IEEE</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About IEEE</a>
+    <a href="events.html">Events</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-orb page-hero-orb-1"></div>
+    <div class="page-hero-orb page-hero-orb-2"></div>
+    <div class="page-hero-content">
+      <p class="page-eyebrow">Who we are</p>
+      <h1 class="page-title">About <span>IEEE &amp; Ignite</span></h1>
+      <p class="page-sub">The world's largest technical professional organization — and a student branch that sparks your journey.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="section-wrap">
+    <div class="container">
+
+      <!-- Stats -->
+      <div class="stat-row">
+        <div class="stat-card"><div class="num">420K+</div><div class="label">Global Members</div></div>
+        <div class="stat-card"><div class="num">160+</div><div class="label">Countries</div></div>
+        <div class="stat-card"><div class="num">1,800+</div><div class="label">Standards</div></div>
+        <div class="stat-card"><div class="num">200+</div><div class="label">Conferences/yr</div></div>
+      </div>
+
+      <!-- About grid -->
+      <div class="about-grid" style="margin-top:2rem;">
+
+        <div class="about-card">
+          <h3>🌐 About IEEE</h3>
+          <p>The Institute of Electrical and Electronics Engineers (IEEE) is the world's largest technical professional organization, dedicated to advancing technology for the benefit of humanity. Founded in 1963, IEEE publishes some of the most highly cited technical journals in electrical engineering, electronics, and computer science.</p>
+          <p>IEEE's mission is to foster technological innovation and excellence for the benefit of humanity. Through its global network of members, publications, and conferences, IEEE connects engineers and technologists worldwide.</p>
+          <div class="social-links">
+            <a href="https://ieee.org" target="_blank" rel="noopener" class="social-link">🌐 Website</a>
+            <a href="https://instagram.com/ieee" target="_blank" rel="noopener" class="social-link">📸 Instagram</a>
+            <a href="https://linkedin.com/company/ieee" target="_blank" rel="noopener" class="social-link">💼 LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <h3>🏫 IEEE SB LBSITW</h3>
+          <p>The IEEE Student Branch at LBS Institute of Technology for Women, Thiruvananthapuram, empowers students through technical workshops, networking events, and professional development opportunities.</p>
+          <p>Our branch connects aspiring engineers with global IEEE resources and fosters a collaborative learning environment where students can grow beyond the classroom. We organize regular seminars, hands-on labs, and industry interaction sessions throughout the academic year.</p>
+          <div class="social-links">
+            <a href="https://www.lbsitw.ac.in" target="_blank" rel="noopener" class="social-link">🏛 College</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link">📸 Instagram</a>
+          </div>
+        </div>
+
+        <div class="about-card about-card-full">
+          <h3>⚡ About IEEE Ignite</h3>
+          <p>IEEE Ignite is a two-day multi-track technical festival crafted to spark curiosity, reward innovation, and build collaborative skills. The event brings together students from disciplines ranging from computer science to electrical engineering under one roof.</p>
+          <p style="margin-top:.75rem;">Ignite features three distinct tracks — <strong style="color:var(--indigo2)">Technical</strong>, <strong style="color:var(--cyan2)">Professional</strong>, and <strong style="color:#FCD34D">Interactive</strong> — ensuring every participant finds their spark, whether they are a seasoned coder, a budding entrepreneur, or a curious newcomer looking to level up their career game.</p>
+          <ul class="objective-list" style="margin-top:1.25rem;">
+            <li>Foster technical skill-building through hands-on workshops in web development, AI/ML, and competitive programming.</li>
+            <li>Bridge the gap between academia and industry through career guidance talks and professional development sessions.</li>
+            <li>Cultivate teamwork and creative problem-solving through interactive challenges and innovation pitches.</li>
+            <li>Create a vibrant community of student innovators connected through the global IEEE network.</li>
+            <li>Recognize and celebrate student talent through prizes, certificates, and mentorship opportunities.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="events.html" class="btn-primary">View All Events ↗</a>
+        <a href="schedule.html" class="btn-ghost">See Schedule</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-logo">IEEE <span>Ignite</span> 2025</div>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <p>Organized by IEEE Student Branch, LBS Institute of Technology for Women, Thiruvananthapuram</p>
+    <p style="margin-top:.5rem;">© 2025 IEEE SB LBSITW. All rights reserved.</p>
+  </footer>
+
+  <script src="nav.js"></script>
+</body>
+</html>
